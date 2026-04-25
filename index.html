@@ -1,22 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<head>
   <meta charset="UTF-8">
-  <title>Watch This 😳</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Watch Preview</title>
 
-  <meta property="og:title" content="Watch This 😳">
-  <meta property="og:description" content="This is going viral right now...">
+  <!-- OPEN GRAPH -->
+  <meta property="og:title" content="Watch Preview">
+  <meta property="og:description" content="Click to watch the full content">
   <meta property="og:image" content="https://freeroomprivate.vercel.app/preview.jpg">
-  <meta property="og:url" content="https://freeroomprivate.vercel.app/">
+  <meta property="og:url" content="https://NAMAPROJECT.vercel.app/">
   <meta property="og:type" content="website">
 
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://freeroomprivate.vercel.app/preview.jpg">
 
-  <meta http-equiv="refresh" content="8;url=https://dffjhfg.lnkks.com/p/0BbFo">
+  <style>
+    body {
+      margin:0;
+      background:#0f0f0f;
+      color:#fff;
+      font-family:Arial, sans-serif;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      flex-direction:column;
+    }
+
+    .player {
+      position:relative;
+      width:90%;
+      max-width:420px;
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 10px 30px rgba(0,0,0,0.6);
+      cursor:pointer;
+    }
+
+    .player img {
+      width:100%;
+      display:block;
+    }
+
+    .play-btn {
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      width:75px;
+      height:75px;
+      background:rgba(0,0,0,0.6);
+      border-radius:50%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+
+    .play-btn:after {
+      content:'▶';
+      font-size:32px;
+      margin-left:5px;
+    }
+
+    .label {
+      position:absolute;
+      top:10px;
+      left:10px;
+      background:#e50914;
+      padding:5px 10px;
+      font-size:12px;
+      border-radius:6px;
+    }
+
+    .progress {
+      position:absolute;
+      bottom:0;
+      left:0;
+      height:4px;
+      width:0%;
+      background:red;
+    }
+
+    .footer {
+      margin-top:15px;
+      font-size:14px;
+      color:#aaa;
+      text-align:center;
+    }
+  </style>
 </head>
-</head>
-<body style="margin:0;background:#000;color:#fff;text-align:center;padding-top:100px;font-family:sans-serif;">
-  <h2>Loading video...</h2>
-  <p>Please wait a moment</p>
+
+<body>
+
+  <div class="player" onclick="startRedirect()">
+    <span class="label">Preview</span>
+    <img src="preview.jpg">
+    <div class="play-btn"></div>
+    <div class="progress" id="bar"></div>
+  </div>
+
+  <div class="footer">
+    Tap to continue to the full content
+  </div>
+
+  <script>
+    function startRedirect() {
+      let bar = document.getElementById("bar");
+      let w = 0;
+
+      let i = setInterval(() => {
+        w += 2;
+        bar.style.width = w + "%";
+
+        if (w >= 100) {
+          clearInterval(i);
+          window.location.href = "https://dffjhfg.lnkks.com/p/0BbFo";
+        }
+      }, 30);
+    }
+  </script>
+
+</body>
+</html>
